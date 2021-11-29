@@ -1,8 +1,37 @@
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
+//* Redux
+import { useDispatch } from 'react-redux';
+import { borrarProductoAction } from '../actions/productoActions';
 
 const Producto = ({producto}) => {
 
     const { nombre, precio, id} = producto;
+
+    const dispatch = useDispatch();
+
+    //* Confirmar si desea eliminarlo
+    const confirmarEliminarProducto = id => {
+
+        //* Preguntar al usuario
+        Swal.fire({
+            title: 'Estas seguro?',
+            text: "No podrás revertir esta acción!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            cancelButtonText: 'Cancelar',
+            confirmButtonText: 'Si, borralo!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                //* Pasarlo al action
+                dispatch( borrarProductoAction(id) );
+            }
+          })
+
+       
+    }
 
     return (
         <tr>
@@ -19,6 +48,7 @@ const Producto = ({producto}) => {
                 <button
                     type="button"
                     className="btn btn-danger"
+                    onClick={ ()=> confirmarEliminarProducto(id) }
                 >Eliminar</button>
             </td>
         </tr>

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 
 //* Actions de REDUX
-import { crearNuevoProductoAction } from '../actions/productosActions'; 
+import { crearNuevoProductoAction } from '../actions/productoActions'; 
 
 const NuevoProducto = () => {
 
@@ -32,7 +32,7 @@ const NuevoProducto = () => {
     //* Navegar por URL
     let navigate = useNavigate();
 
-    //* Mandar llamar el action de productosActions
+    //* Mandar llamar el action de productoActions
     const agregarProducto = producto => dispatch( crearNuevoProductoAction( producto ) );
 
     //* Cuando el usuario haga submit

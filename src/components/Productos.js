@@ -3,7 +3,7 @@ import { Fragment } from "react";
 
 //* REDUX
 import { useDispatch, useSelector } from "react-redux";
-import { obtenerProductosAction } from "../actions/productosActions";
+import { obtenerProductosAction } from "../actions/productoActions";
 import Producto from "./Producto";
 
 const Productos = () => {
@@ -40,7 +40,7 @@ const Productos = () => {
                 </thead>
 
                 <tbody>
-                    { (productos.length === 0 && !cargando) ? 'No hay productos' : (
+                    { (productos.length === 0 && !cargando) ? <tr><td>No hay productos</td></tr> : (
                         productos.map(producto => (
                             <Producto
                                 key={producto.id}
