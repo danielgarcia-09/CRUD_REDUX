@@ -16,6 +16,7 @@ const Productos = () => {
         const cargarProductos = () => dispatch( obtenerProductosAction() );
         
         cargarProductos();
+        // eslint-disable-next-line
     },[]);
 
     //* Obtener el state
@@ -27,7 +28,7 @@ const Productos = () => {
         <Fragment>
             <h2 className="text-center my-5"> Listado de Productos</h2>
 
-            { (error) ? <p className="font-weight-bold alert alert-danger text-center">Hubo un error</p> : null }
+            { error ? <p className="font-weight-bold alert alert-danger text-center">Hubo un error</p> : null }
             { cargando ? <p className="text-center">Cargando...</p> : null }
 
             <table className="table table-striped">

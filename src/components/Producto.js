@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 //* Redux
 import { useDispatch } from 'react-redux';
-import { borrarProductoAction } from '../actions/productoActions';
+import { borrarProductoAction, obtenerProductoEditar } from '../actions/productoActions';
 
 const Producto = ({producto}) => {
 
@@ -28,9 +28,16 @@ const Producto = ({producto}) => {
                 //* Pasarlo al action
                 dispatch( borrarProductoAction(id) );
             }
-          })
+          })       
+    }
 
-       
+    //* Para navegar a otro link
+    let navigate = useNavigate();
+    const redireccionarEdicion = producto => {
+
+        dispatch( obtenerProductoEditar(producto) );
+        navigate(`/productos/editar/${id}`)
+        
     }
 
     return (
@@ -42,9 +49,12 @@ const Producto = ({producto}) => {
                 </span>
             </td>
             <td className="acciones">
-                <Link to={`/productos/editar/${id}`} className="btn btn-primary mr-2">
-                    Editar
-                </Link>
+                <button
+                    type='button'
+                    onClick={ ()=> redireccionarEdicion(producto) }
+                    className="btn btn-primary mr-2">
+                Editar
+                </button>
                 <button
                     type="button"
                     className="btn btn-danger"

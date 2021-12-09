@@ -1,24 +1,39 @@
 {
   "productos": [
     {
-      "id": 2,
       "nombre": "Jugo de Naranja",
-      "precio": "1"
-    },
-    {
-      "nombre": "Jugo de Naranja",
-      "precio": "300",
+      "precio": 300,
       "id": 3
     },
     {
-      "nombre": "Rib Eye 800g",
-      "precio": "200",
-      "id": 4
+      "id": 4,
+      "nombre": "Rib Eye 800gr",
+      "precio": 20000
     },
     {
       "nombre": "Jugo de Fresa",
-      "precio": "200",
+      "precio": 200,
       "id": 5
+    },
+    {
+      "nombre": "Julio Daniel",
+      "precio": 500,
+      "id": 6
+    },
+    {
+      "id": 7,
+      "nombre": "uva bombon",
+      "precio": 6000
+    },
+    {
+      "id": 8,
+      "nombre": "MOODLE",
+      "precio": 600
+    },
+    {
+      "nombre": "elegir plataforma virtual",
+      "precio": 250000,
+      "id": 9
     }
   ]
 }
